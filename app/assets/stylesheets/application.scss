@@ -15,3 +15,47 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header */
+
+header, nav {
+   font-family: "Times New Roman", sans-serif;
+}
+
+.container {
+   margin: 20px auto;
+}
+
+header {
+   position: relative;
+   background-color: #4e454a;
+   border-bottom: 3px solid #ece093;
+   width: 100%;
+}
+
+.navbar {
+    height: 110px;
+	margin: 0 auto;
+}
+
+.shopname {
+    margin: 9px auto;
+	font-size: 38px;
+}
+
+.customer_name {
+    margin: 25px 5px 0 0;
+	font-size: 17px;
+	color: #ffffff;
+}
+
+.btn {
+	margin: 10px;
+	background-color: #eedcb3;
+}
