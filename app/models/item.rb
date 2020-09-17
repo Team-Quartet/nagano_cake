@@ -7,4 +7,8 @@ class Item < ApplicationRecord
 	has_many :customers, through: :cart_items
 
 	attachment :image, destroy: false
+
+	validates :name, presence: true
+  validates :introduction, presence: true
+  validates :non_taxed_price, presence: true
 end
