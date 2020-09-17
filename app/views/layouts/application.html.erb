@@ -14,11 +14,7 @@
       <nav class="navbar">
         <div class="container">
           <div class="navbar-header navbar-left shopname">
-            <% if customer_signed_in? %>
               <%= link_to "NAGANO CAKE", root_path, :style=>"color:#ece093;" %>
-            <% else %>
-              <%= link_to "NAGANO CAKE", admins_home_top_path, :style=>"color:#ece093;" %>
-            <% end %>
           </div>
 
           <div class="collapse navbar-collapse" id="navbarExample7">
@@ -44,7 +40,7 @@
 
           <!-- どちらもログインしていない -->
             <% else %>
-              <li><%= link_to "ABOUT", "/home/about", class: "btn btn-default" %></li>
+              <li><%= link_to "ABOUT", home_about_path, class: "btn btn-default" %></li>
               <li><%= link_to "商品一覧", items_path, class: "btn btn-default" %></li>
               <li><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-default" %></li>
               <li><%= link_to "ログイン", new_customer_session_path, class: "btn btn-default" %></li>
