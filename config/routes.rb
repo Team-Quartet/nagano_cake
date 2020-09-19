@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  root'home#top'
-
    devise_for :customers, controllers: {
   sessions:      'customers/sessions',
   passwords:     'customers/passwords',
   registrations: 'customers/registrations'
 }
+  root'home#top'
   get 'home/top' => 'home#top'
   get 'home/about' => 'home#about'
   resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
@@ -23,13 +22,13 @@ Rails.application.routes.draw do
     end
   end
 
-
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
   namespace :admins do
+    root 'home#top'
     get 'home/top' => 'home#top'
     resources :order_items, only: [:update]
     resources :orders, only: [:index, :show, :update]
