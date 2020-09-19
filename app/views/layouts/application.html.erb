@@ -14,7 +14,11 @@
       <nav class="navbar">
         <div class="container">
           <div class="navbar-header navbar-left shopname">
+            <% if admin_signed_in? %>
+              <%= link_to "NAGANO CAKE", admins_root_path, :style=>"color:#ece093;" %>
+            <% else %>
               <%= link_to "NAGANO CAKE", root_path, :style=>"color:#ece093;" %>
+            <% end %>
           </div>
 
           <div class="collapse navbar-collapse" id="navbarExample7">
