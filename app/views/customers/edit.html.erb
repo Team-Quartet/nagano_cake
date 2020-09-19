@@ -1,2 +1,75 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="container">
+  <h2 class="title">登録情報編集</h2>
+ 
+  <% if @customer.errors.any? %>
+  <h3><%= @customer.errors.count %>error occurrence</h3>
+  
+  <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  
+  <%= form_for(@customer) do |f| %>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= f.label :氏名%>
+        （姓） <%= f.text_field :family_name %>
+        （名） <%= f.text_field :first_name %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2">
+      <div class="form-group"> 
+        <%= f.label :フリガナ %>
+        （セイ）<%= f.text_field :kana_family_name %>
+        （メイ）<%= f.text_field :kana_first_name %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2">
+      <div class="form-group">
+        <%= f.label :郵便番号 %><strong>(ハイフンなし)</strong>
+        <%= f.text_field :postal_code %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= f.label :住所 %>
+        <%= f.text_field :address %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= f.label :電話番号 %><strong>(ハイフンなし)</strong>
+        <%= f.text_field :phone_number %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= f.label :メールアドレス %>
+        <%= f.text_field :email %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+  <%= link_to "退会する", customers_unsubscribe_path, class: "btn btn-danger" %>
+   
+  <% end %>
+</div>
