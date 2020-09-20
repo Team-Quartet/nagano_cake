@@ -2,6 +2,14 @@
   <div class="row">
 	<div class="col-xs-12">
 		<h3>商品一覧</h3>
+
+　　　　　<div class= "btn" style="position:absolute; top: 35px; right: 20px;">
+	       <%= link_to new_admins_item_path do %>
+	       <label class="btn btn-primary btn-md">新規登録</label>
+	       <% end %>
+	   </div>
+
+	<div class="col-xs-12">
 		<table class="table">
 			<thead>
 				<tr>
@@ -22,17 +30,19 @@
 					</td>
 					<td><%= item.non_taxed_price %></td>
 					<td><%= item.genre.name %></td>
-					<td>
-						<% if item.is_active? %>
-						  <p>販売中</p>
+					<td><% if item.is_active? %>
+						  販売中
 						<% else %>
-						  <p>売切れ</p>
+						  売切れ
 						<% end %>
 					</td>
 				</tr>
+				<% end %>
 			</tbody>
-			<% end %>
 		</table>
+	</div>
+
+
 	</div>
   </div>
 </div>
