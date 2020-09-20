@@ -10,12 +10,12 @@
         <div class="col-xs-6">
           <h2><%= @item.name %></h2><br>
           <%= @item.introduction %> <br>
-          <h3><% taxed_price = item.non_taxed_price * 1.1 %>
+          <h3><% taxed_price = @item.non_taxed_price * 1.1 %>
                ¥<%= taxed_price.floor %>　(税込)</h3>
                
                <%= form_for @cart_item, url: cart_items_path(@cart_item) do |f| %>
                <%= f.hidden_field :item_id  , :value => @item.id%>
-               <%= f.number_field :number_of_items , placeholder: "個数選択", min: 1, max: 99 %>
+               <%= f.number_field :count , placeholder: "個数選択", min: 1, max: 99 %>
                <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>
                <% end %>
     </div>
