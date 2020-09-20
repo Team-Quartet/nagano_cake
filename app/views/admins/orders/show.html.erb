@@ -3,18 +3,23 @@
 
 		<h2>注文履歴詳細</h2>
 
-		<ul>
-			<li>購入者</li>
-			<li>配送先</li>
-			<li>支払方法</li>
-			<li>注文ステータス</li>
-		</ul>
-
-		<ul>
-			<li><%= link_to @order.customer_id, admins_customer_path(@customer) %></li>
-			<li><%= @order.postal_code, @order.address, @order.customer_id %></li>
-			<li><%= @order.payment_method %></li>
-			<li><%= @order.status %></li>
-		</ul>
+		<table class="table">
+			<tr>
+				<th>購入者</th>
+				<th><%= link_to @order.customer_id, admins_customer_path(@customer) %></th>
+			</tr>
+			<tr>
+				<th>配送先</th>
+				<th><%= @order.order_info %></th>
+			</tr>
+			<tr>
+				<th>支払方法</th>
+				<th><%= @order.payment_method %></th>
+			</tr>
+			<tr>
+				<th>注文ステータス</th>
+				<th><%= @order.status %></th>
+			</tr>
+		</table>
 	</div>
 </div>

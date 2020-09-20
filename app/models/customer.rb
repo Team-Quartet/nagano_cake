@@ -16,4 +16,10 @@ class Customer < ApplicationRecord
   validates :postal_code, presence: true, format: {with: /\A\d{7}\z/}
   validates :address, presence: true
   validates :phone_number, presence: true
+
+#姓、名をまとめた命名
+    def full_name
+     self.family_name + self.first_name
+  end
+
 end
