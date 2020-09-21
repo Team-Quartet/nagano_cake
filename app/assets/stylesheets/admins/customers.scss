@@ -1,3 +1,9 @@
 // Place all the styles related to the admins::customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.is_deleted {
+	background-color: lightblue;
+	border: 1px solid;
+	border-radius: 5px;
+}

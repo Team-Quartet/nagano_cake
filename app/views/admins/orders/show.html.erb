@@ -3,23 +3,60 @@
 
 		<h2>注文履歴詳細</h2>
 
+		<div class="col-md-2">
+			<h3><strong>購入者</strong></h3>
+			<h3><strong>配送先</strong></h3>
+			<h3><strong>支払方法</strong></h3>
+			<h3><strong>注文ステータス</strong></h3>
+		</div>
+		<div class="col-md-10">
+				<h3><%= link_to @customer.full_name, admins_customer_path(@customer) %>
+				</h3>
+				<h3><%= @order.order_info %></h3>
+				<h3><%= @order.payment_method %></h3>
+			<%= form_for (@order, url: admins_order_path) do |f| %>
+				<h3><%= f.select :status, [['入金待ち', '入金待ち'],['入金確認', '入金確認'],['製作中', '製作中'],['発送準備中', '発送準備中'],['発送済み', '発送済み']] %>
+				</h3>
+				<%= f.submit '更新', class: "btn btn-primary" %>
+			<% end %>
+		</div>
+
 		<table class="table">
-			<tr>
-				<th>購入者</th>
-				<th><%= link_to @order.customer_id, admins_customer_path(@customer) %></th>
-			</tr>
-			<tr>
-				<th>配送先</th>
-				<th><%= @order.order_info %></th>
-			</tr>
-			<tr>
-				<th>支払方法</th>
-				<th><%= @order.payment_method %></th>
-			</tr>
-			<tr>
-				<th>注文ステータス</th>
-				<th><%= @order.status %></th>
-			</tr>
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価（税込）</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th>製作ステータス</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order_items.each do |order_item| %>
+				    <tr>
+						<td><%= order_item.item.name %></td>
+						<td><%= order_item.taxed_price %></td>
+						<td><%= order_item.count %></td>
+						<td><% order_item.taxed_price * order_item.count %> </td>
+					  <%= form_for(order_item, url: admins_order_item do |f| %>
+						<td><%= f.select :making_status, [['着手不可', '着手不可'],['製作待ち', '入金確認'],['製作中', '製作中'],['製作完了', '製作完了'] %></td>
+						<td><%= f.submit '更新', class: "btn btn-primary" %>   </td>
+					  <% end %>
+				    </tr>
+				<% end %>
+			</tbody>
 		</table>
+
+		<div class="col-md-2">
+	        <h3>商品合計</h3>
+	        <h3>送料</h3>
+	        <h3>請求金額合計</h3>
+	    </div>
+        <div class="col-md-2">
+	        <h3><%= @order.total_price - @order.shipping_fee %>円</h3>
+	        <h3><%= @order.shipping_fee %>円</h3>
+	        <h3><%= @order.total_price %>円</h3>
+	    </div>
 	</div>
 </div>
