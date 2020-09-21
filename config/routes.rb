@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'home/top' => 'home#top'
   get 'home/about' => 'home#about'
   resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
-  resources :customers, only: [:show, :edit, :update]
   get 'customers/unsubscribe' => 'customers#unsubscribe'
+  resource :customers, only: [:show, :edit, :update]
   patch 'customers/withdraw' => 'customers#withdraw'
   resources :orders, only: [:index, :show, :create, :new]
   get 'orders/thanks' => 'orders#thanks'
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root 'home#top'
     get 'home/top' => 'home#top'
-    resources :order_items, only: [:update]
+    resource :order_items, only: [:update]
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]

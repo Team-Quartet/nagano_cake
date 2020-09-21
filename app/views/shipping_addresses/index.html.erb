@@ -1,2 +1,54 @@
-<h1>ShippingAddresses#create</h1>
-<p>Find me in app/views/shipping_addresses/create.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      
+      <% if @shipping_address.errors.any? %>
+        <h3><%= @shipping_address.errors.count %>error occurrence</h3>
+        <ul>
+          <% @shipping_address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
+
+      <h2 class="title">配送先登録/一覧</h2>
+
+      <%= form_for (@shipping_address) do |f| %>
+        <%= f.label :郵便番号, "郵便番号(ハイフンなし)", style: "width:16%;" %>
+        <%= f.text_field :postal_code %><br>
+
+        <%= f.label :住所, style: "width:16%;" %>
+        <%= f.text_field :address, style: "width:50%;" %><br>
+
+        <%= f.label :宛名, style: "width:16%;" %>
+        <%= f.text_field :receiver_name %>
+
+        <%= f.submit "登録する", class: "btn btn-success", style: "margin-left:400px;" %>
+      <% end %><br><br><br>
+
+      <table class="table table-bordered" style="width:70%;">
+        <thead>
+          <tr class="table-active">
+            <th style="width:10%;">郵便番号</th>
+            <th style="width:40%;">住所</th>
+            <th style="width:15%;">宛名</th>
+            <th style="width:30%;"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @shipping_addresses.each do |shipping_address| %>
+          <tr>
+            <td><%= shipping_address.postal_code %></td>
+            <td><%= shipping_address.address %></td>
+            <td><%= shipping_address.receiver_name %></td>
+            <td class="text-center"><%= link_to "編集する", edit_shipping_address_path(shipping_address), class: "btn btn-primary" %>
+            <%= link_to "削除する", shipping_address_path(shipping_address), method: :delete, class: "btn btn-danger" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+		</div>
+	</div>
+</div>
