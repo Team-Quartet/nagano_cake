@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   get 'home/top' => 'home#top'
   get 'home/about' => 'home#about'
   resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
-  get 'customers/unsubscribe' => 'customers#unsubscribe'
-  resource :customers, only: [:show, :edit, :update]
-  patch 'customers/withdraw' => 'customers#withdraw'
+  resource :customer, only: [:show, :edit, :update] do
+    member do
+      get 'unsubscribe' => 'customers#unsubscribe'
+      patch 'withdrawl' => 'customers#withdrawl'
+    end
+  end
+
   resources :orders, only: [:index, :show, :create, :new]
   get 'orders/thanks' => 'orders#thanks'
   post 'orders/confirm' => 'orders#confirm'
