@@ -13,7 +13,7 @@ class Customer < ApplicationRecord
   validates :first_name, presence: true
   validates :kana_family_name, presence: true
   validates :kana_first_name, presence: true
-  validates :postal_code, presence: true, format: {with: /\A\d{7}\z/}
+  validates :postal_code, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
 
@@ -22,4 +22,11 @@ class Customer < ApplicationRecord
      self.family_name + self.first_name
   end
 
+  def self.search(search)
+      if search
+        Customer.where(['family_name LIKE ?', "%#{search}%"])
+      else
+        Customer.all
+      end
+    end
 end

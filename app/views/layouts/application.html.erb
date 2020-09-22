@@ -49,12 +49,25 @@
               <li><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-default" %></li>
               <li><%= link_to "ログイン", new_customer_session_path, class: "btn btn-default" %></li>
             <% end %>
-
             </ul>
-      　  </div>
-    　  </div>
+         </div>
+
+         <% if admin_signed_in? %>
+              <div class="search-form text-right">
+                  <%= form_tag(admins_search_path,:method => 'get') do %>
+                    <%= select_tag 'range', options_for_select([['商品名', '商品名'], ['会員氏名', '会員氏名']]) %>
+                    <%= text_field_tag :keyword , params[:keyword],placeholder: "検索" %>
+                    <%= submit_tag 'Search' %>
+                  <% end %>
+              </div>
+            <% end%>
+
+       </div>
       </nav>
     </header>
     <%= yield %>
   </body>
+  <footer>
+       <p class="footer-text">© NAGANO CAKE</p>
+  </footer>
 </html>
