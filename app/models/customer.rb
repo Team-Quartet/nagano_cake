@@ -23,10 +23,10 @@ class Customer < ApplicationRecord
   end
 
   def self.search(search)
-      if search
-        Customer.where(['family_name LIKE ?', "%#{search}%"])
-      else
-        Customer.all
-      end
+    if search
+      Customer.where(['family_name LIKE ?', "%#{search}%"])
+    else
+      Customer.all
     end
+  end
 end
