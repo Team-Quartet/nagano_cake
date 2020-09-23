@@ -5,11 +5,9 @@
 
 		<%= form_for(@item, url:admins_item_path) do |f| %>
 		<div class="col-xs-4">
-			<div class="img_field">
-				<%= attachment_image_tag(@item, :image, :size => '300x240', fallback: "no_image.jpg") %>
-			</div>
-			<div class="img_field">
-				<%= f.attachment_field :image %>
+			<div class="item_image">
+				<%= attachment_image_tag @item, :image, class: "img", fallback: "no_image.jpg", size:"300x240" %>
+				<%= f.attachment_field :image, placeholder: "画像" %>
 		    </div>
 		</div>
 

@@ -3,11 +3,12 @@
 	<div class="col-xs-12">
 		<h3>商品一覧</h3>
 
-　　　　　<div class= "btn" style="position:absolute; top: 35px; right: 20px;">
-	       <%= link_to new_admins_item_path do %>
-	       <label class="btn btn-primary btn-md">新規登録</label>
-	       <% end %>
-	   </div>
+		<div class="col-xs-12 col-xs-offset-11">
+		<a id="fab" <%= link_to new_admins_item_path do %>
+			<i class="fas fa-plus"></i>
+			<% end %>
+		</a>
+	</div>
 
 	<div class="col-xs-12">
 		<table class="table">
@@ -31,10 +32,12 @@
 					<td><%= item.non_taxed_price %></td>
 					<td><%= item.genre.name %></td>
 					<td><% if item.is_active? %>
-						  販売中
+						<div class="status">
+						  <p>販売中</p>
 						<% else %>
-						  売切れ
+						  <p>売切れ</p>
 						<% end %>
+					</div>
 					</td>
 				</tr>
 				<% end %>
