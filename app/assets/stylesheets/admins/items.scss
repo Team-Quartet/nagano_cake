@@ -1,3 +1,27 @@
 // Place all the styles related to the admins::items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#fab {/*円の部分*/
+    display: block;
+    width: 40px;/*幅*/
+    height: 40px;/*高さ*/
+    background: #4e454a;/*背景色*/
+    text-align: center;/*中央寄せ*/
+    border-radius: 50%;/*角丸く*/
+    transition: .3s;/*滑らかな動きに*/
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
+}
+
+#fab:hover {/*ホバー時*/
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+#fab i {/*中央のアイコン*/
+  color: #ece093;
+  line-height: 40px;/*＝幅と高さ*/
+  font-size: 18px;/*サイズ*/
+}
+
