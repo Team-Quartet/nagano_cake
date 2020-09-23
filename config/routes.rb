@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
    devise_for :customers, controllers: {
   sessions:      'customers/sessions',
   passwords:     'customers/passwords',
@@ -15,9 +16,8 @@ Rails.application.routes.draw do
       patch 'withdrawl' => 'customers#withdrawl'
     end
   end
-
-  resources :orders, only: [:index, :show, :create, :new]
   get 'orders/thanks' => 'orders#thanks'
+  resources :orders, only: [:index, :show, :create, :new]
   post 'orders/confirm' => 'orders#confirm'
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :show, :create, :destroy, :update] do
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root 'home#top'
     get 'home/top' => 'home#top'
+    get '/search' => 'search#search'
     resource :order_items, only: [:update]
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update]

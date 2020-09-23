@@ -1,0 +1,2 @@
+module Addmins::SearchHelper
+end
