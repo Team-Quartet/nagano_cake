@@ -19,11 +19,12 @@ class CustomersController < ApplicationController
   end
 
   def unsubscribe
-    @customer = current_customer
+    @customer = Customer.find(current_customer.id)
   end
 
-  def withdraw
-    @customer = current_customer
+  def withdrawl
+    @customer = Customer.find(current_customer.id)
+    reset_session
     @customer.destroy
     redirect_to root_path, notice: "退会しました"
   end
