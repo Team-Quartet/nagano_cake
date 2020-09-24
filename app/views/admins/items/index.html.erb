@@ -1,20 +1,19 @@
 <div class="container">
   <div class="row">
-	<div class="col-xs-12">
-		<h3>商品一覧</h3>
+	<div class="col-jg-12">
+		<h2>商品一覧</h2>
 
-		<div class="col-xs-12 col-xs-offset-11">
+		<div class="col-xs-offset-11 col-xs-1">
 		<a id="fab" <%= link_to new_admins_item_path do %>
 			<i class="fas fa-plus"></i>
 			<% end %>
 		</a>
+	    </div>
 	</div>
 
 	<div class="col-xs-12">
 		<%= render 'index', items: @items %>
 	</div>
 
-
-	</div>
   </div>
 </div>

@@ -26,14 +26,16 @@
   box-sizing: border-box;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 /* header */
 
 header, nav {
    font-family: "Times New Roman", sans-serif;
-}
-
-.container {
-   margin: 0 auto;
 }
 
 header {
@@ -43,25 +45,144 @@ header {
    border-bottom: 3px solid #ece093;
 }
 
-.shopname {
-    margin: 0 auto;
-	font-size: 38px;
-	line-height: 110px;
+.container {
+   width: 1024px;
+   margin: 0 auto;
 }
 
-.customer_name {
-    margin: 25px 5px 0 0;
-	font-size: 17px;
-	color: #ffffff;
+.shopname {
+  margin: 0 auto;
+  font-size: 38px;
+  line-height: 110px;
+}
+
+.nav {
+  margin: 0 auto;
+  line-height: 110px;
+  color: #eedcb3;
 }
 
 header .btn {
-	margin: 28px 15px 0 0;
-	background-color: #eedcb3;
+  margin: 28px 15px 0 0;
+  background-color: #eedcb3;
 }
 
 .search-form {
    font-family: sans-serif;
+}
+
+
+
+/* genre */
+
+.panel {
+  margin: 0 auto;
+  background-color: #efefef;
+}
+
+.panel-heading {
+  padding: 20px 0;
+  border-bottom: 1px solid #4e454a;
+}
+
+.genre-form {
+  margin-bottom: 30px;
+}
+
+
+
+/* main */
+
+body {
+  background-color: #eae8e1;
+  font-family: 'Avenir','Calibri',sans-serif;
+}
+
+.row {
+  text-align: center;
+}
+
+.col-md-4, col-md-5, col-xs-6 {
+  margin-bottom: 35px;
+}
+
+/* リンクの文字色 */
+a {
+  color: #4e454a;
+}
+
+h2 {
+  margin: 50px auto;
+  font-size: 23px;
+  text-align: center;
+  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 350px;
+  height: 1px;
+  margin: 5px auto 3px auto;
+  background-color: #4e454a;
+}
+
+.item-img {
+  margin-bottom: 12px;
+}
+
+.item-name {
+  margin-bottom: 5px;
+}
+
+.item-img-area {
+  margin: 50px auto;
+}
+
+.item_text {
+  margin-bottom: 50px;
+}
+
+.item-price {
+  font-size: 18px;
+}
+
+.cart-link {
+  text-align: right;
+  margin-top: 20px;
+}
+
+input[type="number"] {
+  width: 80px;
+  height: 34px;
+  margin-right: 10px;
+}
+
+.btn {
+  color: #4e454a;
+  background-color: #eedcb3;
+  border: 1px solid #4e454a;
+  font-size: 14px;
+}
+
+
+
+/* cart */
+.btn-danger {
+  background-color: #e6c0c0;
+}
+
+.table-bordered {
+  background-color: #efefef;
+  margin: 20px auto;
+}
+
+.active {
+  height: 50px;
+}
+
+.table {
+  boeder: 2px solid #4e454a;
 }
 
 /* footer */
@@ -80,4 +201,23 @@ footer {
 
 .footer-text {
   color: #ece093;
+}
+
+
+
+/* レスポンシブ */
+
+@media screen and (max-width:768px) {
+  header {
+    width: 100%;
+    height: 30px;
+  }
+
+
+
+  .panel-body {
+  float: left;
+  display: none;
+  }
+
 }
