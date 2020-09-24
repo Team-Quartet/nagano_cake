@@ -1,24 +1,39 @@
 class Admins::OrdersController < ApplicationController
+    before_action :authenticate_admin!
+
   def index
-    @orders = Order.all
-  end
-
-  def show
-    @order = Order.find(params[:id])
-    @order_items = Order_item.all
-  end
-
-  def update
-     @order = Order.find(params[:status])
-    if @order.update(order_params)
-      redirect_to request.referer
+    if params[:id] # 会員詳細から来た場合
+      @orders = Customer.find(params[:id]).orders.page(params[:page]).per(10)
+    elsif request.fullpath.include? "today" # TOPの当日注文数から来た場合
+      @orders = Order.where(created_at:  Time.zone.now.all_day).page(params[:page]).per(10)
     else
-      render 'orders/show'
+      @orders = Order.page(params[:page]).per(10)
     end
   end
 
-	  private
-	def order_params
-	  params.require(:order).permit(:customer_id, :shipping_fee, :total_price, :payment_method, :status, :receiver_name, :postal_code, :address)
-	end
+    def show
+      @order = Order.find(params[:id])
+      @order_items = @order.order_items.all
+    end
+
+    def update
+     @order = Order.find(params[:id])
+     if @order.update(order_params)
+      redirect_to request.referer, notice: 'ユーザ情報を更新しました。'
+    else
+      render 'orders/show'
+      @customer = @order.customer
+      @order_items = @order.order_items
+      @order_item = OrderItem.find(@order.id)
+    end
+  end
+
+  private
+  def order_params
+   params.permit(:customer_id, :shipping_fee, :total_price, :payment_method, :status, :receiver_name, :postal_code, :address)
+ end
+
+ def order_item_params
+    params.require(:order_item).permit(:making_status)
+  end
 end
