@@ -9,7 +9,9 @@
   </div>
 
     <div class="row">
-      <table class="table-bordered">
+      <div class="col-md-12">
+        <table class="table-bordered col-md-12">
+
       <thead>
         <tr class="active">
             <th class="col-sm-5">商品名</th>
@@ -55,46 +57,10 @@
           <th class="active col-sm-2">合計金額</th>
           <td class="col-sm-1"><%= sum_price %></td>
       </tr>
+    </table>
+  </div>
 
-          <tbody>
-            <% sum_all = 0 %>
-            <% @cart_items.each do |cart_item| %>
-            <% if cart_item.customer_id == current_customer.id %>
-            <tr style="height:8em">
-              <td>
-                <%= attachment_image_tag cart_item.item, :image, fallback: "no_image.jpg", size:'100x80' %>
-                <%= cart_item.item.name %>
-              </td>
-              <td>
-                <% taxed_price = cart_item.item.non_taxed_price * 1.1 %>
-                <%= taxed_price.floor %>
-              </td>
-              <td>
-                <%= form_for(cart_item, url:cart_item_path(cart_item.id)) do |f| %>
-                <%= f.text_field :count, size:"5" %>
-                <%= f.submit '変更', class: "btn btn-primary" %>
-                <% end %>
-              </td>
-              <td>
-              </td>
-              <td>
-                <%= button_to '削除する', cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %>
-              </td>
-            </tr>
-            <% end %>
-            <% end %>
-          </tbody>
-        </table>
-
-        <div class="col-xs-offset-8 col-xs-4">
-          <table class="table table-bordered" >
-            <tr>
-              <th class="active col-xs-2">合計金額</th>
-              <td class="col-xs-3"><%= sum_all %></td>
-            </tr>
-          </table>
-        </div>
-
+          
         <div class="row">
           <div class="col-xs-4">
             <%= link_to '買い物を続ける', root_path, class: "btn btn-primary" %><br>
