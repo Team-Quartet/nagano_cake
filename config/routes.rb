@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'orders/thanks' => 'orders#thanks'
   resources :orders, only: [:index, :show, :create, :new]
   post 'orders/confirm' => 'orders#confirm'
+  get 'orders/thanks' => 'orders#thanks'
+  resources :orders, only: [:index, :show, :create, :new]
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :show, :create, :destroy, :update] do
     collection do
