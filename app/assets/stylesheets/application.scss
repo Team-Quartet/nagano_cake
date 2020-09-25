@@ -116,12 +116,22 @@ h3 {
   font-family: 'Avenir','Calibri',sans-serif;
 }
 
+/* 通常クリーム色、削除などピンク */
 .btn {
   color: #4e454a;
   background-color: #eedcb3;
   border: 1px solid #4e454a;
   font-size: 14px;
 }
+
+.btn-danger {
+  background-color: #e6c0c0;
+}
+
+.success_btn {
+  padding-top: 20px;
+}
+
 
 
 /* ジャンル */
@@ -179,10 +189,6 @@ input[type="number"] {
 
 /* カート */
 
-.btn-danger {
-  background-color: #e6c0c0;
-}
-
 .table-bordered {
   background-color: #efefef;
   margin: 20px auto;
@@ -192,13 +198,20 @@ input[type="number"] {
   height: 50px;
 }
 
-.table {
-  boeder: 2px solid #4e454a;
+
+form{
+  padding:30px 50px;
 }
 
+dl dt{
+  width: 120px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
 
-.form-field {
-  text-align :none;
+dl dd{
+  padding:10px 0;
 }
 
 

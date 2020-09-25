@@ -1,75 +1,54 @@
 <div class="container">
+  <div class="row">
+    <div class="col-xs-12">
   <h2 class="title">登録情報編集</h2>
+</div>
 
+<div class="row">
   <% if @customer.errors.any? %>
   <h3><%= @customer.errors.count %>error occurrence</h3>
-  
+
   <ul>
     <% @customer.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
   <% end %>
-  
+
+  <div class="col-md-offset-3 col-md-6, col-xs-offset-2 col-xs-8">
   <%= form_for(@customer) do |f| %>
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <%= f.label :氏名%>
-        （姓） <%= f.text_field :family_name %>
-        （名） <%= f.text_field :first_name %>
-      </div>
-    </div>
-  </div>
+<dl>
+        <dt><%= f.label :氏名%></dt>
+        <dd>（姓） <%= f.text_field :family_name %></dd>
+        <dd>（名） <%= f.text_field :first_name %></dd>
 
-  <div class="row">
-    <div class="col-2">
-      <div class="form-group"> 
-        <%= f.label :フリガナ %>
-        （セイ）<%= f.text_field :kana_family_name %>
-        （メイ）<%= f.text_field :kana_first_name %>
-      </div>
-    </div>
-  </div>
+        <dt><%= f.label :フリガナ %></dt>
+        <dd>（セイ）<%= f.text_field :kana_family_name %></dd>
+        <dd>（メイ）<%= f.text_field :kana_first_name %></dd>
 
-  <div class="row">
-    <div class="col-2">
-      <div class="form-group">
-        <%= f.label :郵便番号 %><strong>(ハイフンなし)</strong>
-        <%= f.text_field :postal_code %>
-      </div>
-    </div>
-  </div>
+        <dt><%= f.label :郵便番号 %>(ハイフンなし)</dt>
+        <dd><%= f.text_field :postal_code %></dd>
 
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <%= f.label :住所 %>
-        <%= f.text_field :address %>
-      </div>
-    </div>
-  </div>
+        <dt><%= f.label :住所 %></dt>
+        <dd><%= f.text_field :address %></dd>
 
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <%= f.label :電話番号 %><strong>(ハイフンなし)</strong>
-        <%= f.text_field :phone_number %>
-      </div>
-    </div>
-  </div>
+        <dt><%= f.label :電話番号 %>(ハイフンなし)</dt>
+        <dd><%= f.text_field :phone_number %></dd>
 
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <%= f.label :メールアドレス %>
-        <%= f.text_field :email %>
-      </div>
-    </div>
-  </div>
+        <dt><%= f.label :メールアドレス %></dt>
+        <dd><%= f.text_field :email %></dd>
 
+    </dl>
+
+</div>
+</div>
+
+ <div class="col-md-offset-3 col-md-6">
   <%= f.submit "変更を保存する", class: "btn btn-primary" %>
 
   <%= link_to "退会する", unsubscribe_customer_path, class: "btn btn-danger" %>
   <% end %>
+</div>
+
+</div>
 </div>
