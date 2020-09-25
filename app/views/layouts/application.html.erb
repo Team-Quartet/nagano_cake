@@ -9,7 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+<body>
+  <div class="wrapper">
     <header>
       <nav class="navbar">
         <div class="container">
@@ -65,9 +66,10 @@
        </div>
       </nav>
     </header>
-    <%= yield %>
+      <%= yield %>
+    <footer class="footer">
+         <p class="footer-text">© NAGANO CAKE</p>
+    </footer>
+  </div>
   </body>
-  <footer class="footer">
-       <p class="footer-text">© NAGANO CAKE</p>
-  </footer>
 </html>
