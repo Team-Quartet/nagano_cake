@@ -32,6 +32,12 @@
   clear: both;
 }
 
+.wrapper{
+    min-height: 130vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
 /* header */
 
 header, nav {
@@ -80,9 +86,6 @@ body {
   font-family: 'Avenir','Calibri',sans-serif;
 }
 
-.row {
-  text-align: center;
-}
 
 .col-md-4, col-md-5, col-xs-6 {
   margin-bottom: 35px;
@@ -214,6 +217,8 @@ footer {
    text-align: center;
    line-height: 70px;
    margin-top: 40px;
+   position: absolute;
+   bottom: 0;
 }
 
 .footer-text {
@@ -231,3 +236,19 @@ footer {
   }
 
 }
+
+form{
+  padding:30px 50px;
+}
+
+form dl dt{
+  width: 165px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
+
+form dl dd{
+  padding:10px 0;
+}
+
