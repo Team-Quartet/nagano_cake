@@ -1,27 +1,31 @@
 <div class="container">
         <h2>注文履歴詳細</h2>
-	<div class="col-xs-7">
-	    <table>
-	        <dl>
-	            <th>購入者</th>
-	            <td><%= link_to @order.customer.full_name, admins_customer_path(@order.customer) %></td>
-	        </tr>
-	        <tr>
-	            <th>配送先</th>
-	            <td>〒<%= @order.order_info %></td>
-	        </tr>
-	        <tr>
-	            <th>支払い方法</th>
-	            <td><%= @order.payment_method %></td>
-	        </tr>
-	        <tr>
-	        <%= form_for(@order, url: admins_order_path(@order)) do |f| %>
-	            <th>注文ステータス</th>
-				<td><%= f.select :status, options_for_select(Order.statuses) %>
-				<%= f.submit '更新', class: "btn btn-primary btn-sm" %></td>
-			<% end %>
-	        </tr>
-	    </table>
+    <div class="row">
+		<div class="col-sm-8">
+		    <table class="table">
+		        <tr>
+		            <th>購入者</th>
+		            <td><%= link_to @order.customer.full_name, admins_customer_path(@order.customer) %></td>
+		        </tr>
+		        <tr>
+		            <th>配送先</th>
+		            <td>〒<%= @order.order_info %></td>
+		        </tr>
+		        <tr>
+		            <th>支払い方法</th>
+		            <td><%= @order.payment_method %></td>
+		        </tr>
+		        <tr>
+		            <th>注文ステータス</th>
+					<td>
+						<%= form_for(@order, url: admins_order_path(@order)) do |f| %>
+						    <%= f.select :status, options_for_select(Order.statuses) %>
+					        <%= f.submit '更新', class: "btn btn-primary btn-sm" %>
+				        <% end %>
+			        </td>
+		        </tr>
+		    </table>
+		</div>
 	</div>
 
 	<div class="row">
@@ -35,7 +39,6 @@
 						<th>数量</th>
 						<th>小計</th>
 						<th>製作ステータス</th>
-						<th colspan="1"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -47,10 +50,12 @@
 								<td><% price = a.taxed_price * a.count %>
 									<%= price %>
 								</td>
-						    <%= form_for(a, url: admins_order_item_path(a.id)) do |f| %>
-								<td><%= f.select :making_status, options_for_select(OrderItem.making_statuses) %></td>
-								<td><%= f.submit '更新', class: "btn btn-primary" %></td>
-							<% end %>
+								<td>
+									<%= form_for(a, url: admins_order_item_path(a.id)) do |f| %>
+									<%= f.select :making_status, options_for_select(OrderItem.making_statuses) %>
+								    <%= f.submit '更新', class: "btn btn-primary" %>
+                                    <% end %>
+								</td>
 					    </tr>
 					<% end %>
 				</tbody>

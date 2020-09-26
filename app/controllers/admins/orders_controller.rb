@@ -35,6 +35,6 @@ class Admins::OrdersController < ApplicationController
  end
 
  def order_item_params
-    params.require(:order_item).permit(:making_status, :amount)
+    params.require(:order_item).permit(:making_status, :count)
   end
 end

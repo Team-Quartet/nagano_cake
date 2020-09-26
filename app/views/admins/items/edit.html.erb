@@ -10,31 +10,31 @@
 				<%= f.attachment_field :image, placeholder: "画像" %>
 		    </div>
 		</div>
-
+    <dl>
 		<div class="col-xs-6">
 			<div class="item_form">
-				<%= f.label "商品名　　" %>
-				<%= f.text_field :name, autofocus: true, size: 40 %>
+				<dt><%= f.label "商品名　　" %></dt>
+				<dd><%= f.text_field :name, autofocus: true, size: 40 %></dd>
 			</div>
 			<div class="item_form">
-				<%= f.label "商品説明　" %>
-				<%= f.text_area :introduction, autofocus: true, size: "39x5" %>
+				<dt><%= f.label "商品説明　" %></dt>
+				<dd><%= f.text_area :introduction, autofocus: true, size: "39x5" %></dd>
 			</div>
 			<div class="item_form">
-				<%= f.label "ジャンル　" %>
-				<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+				<dt><%= f.label "ジャンル　" %></dt>
+				<dd><%= f.collection_select :genre_id, Genre.all, :id, :name %></dd>
 			</div>
 			<div class="item_form">
-				<%= f.label  "税抜価格　" %>
-				<%= f.text_field :non_taxed_price, autofocus: true, size: 40 %>
+				<dt><%= f.label  "税抜価格　" %></dt>
+				<dd><%= f.text_field :non_taxed_price, autofocus: true, size: 40 %></dd>
 			</div>
 			<div class="item_form">
-				<%= f.label "販売ステータス" %>
-				<%= f.select :is_active, [['販売中', true],['売切れ', false]] %>
+				<dt><%= f.label "販売ステータス" %></dt>
+				<dd><%= f.select :is_active, [['販売中', true],['売切れ', false]] %></dd>
 			</div>
 		</div>
-
-		<div class="col-xs-2" style="position:absolute; top: 300px; right: 20px;">
+	  </dl>
+		<div class="col-xs-2" style="position:absolute; top: 470px; right: 20px;">
 			<%= f.submit '変更を保存', class: "btn btn-primary btn-md" %>
 		</div>
 
