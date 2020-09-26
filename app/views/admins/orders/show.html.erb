@@ -33,8 +33,9 @@
 						<th colspan="1"></th>
 					</tr>
 				</thead>
-				<tbody>
+				
 					<% @order_items.each do |order_item| %>
+					<tbody>
 					    <tr>
 							<td><%= order_item.item.name %></td>
 							<td><%= order_item.taxed_price %></td>
@@ -45,8 +46,9 @@
 							<td><%= f.submit '更新', class: "btn btn-primary" %>   </td>
 						  <% end %>
 					    </tr>
+					    </tbody>
 					<% end %>
-				</tbody>
+				
 			</table>
 	    </div>
 

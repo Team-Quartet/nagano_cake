@@ -1,37 +1,41 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-
-    <div class="col-xs-12 col-md-2 genre-form">
+    <div class="col-xs-12 col-md-2 genre-form" style="text-align:center;">
       <%= render 'layouts/genre_seach', genres: @genres %>
     </div>
     <!--URLにジャンルIDが含まれていたらジャンル商品を表示する-->
     <% if params[:genre_id] %>
 
       <div class="col-xs-12 col-md-10">
-        <h2 class="page-title"><%= @genre.name %> 一覧
+        <h2 class="page-title"><%= image_tag 'naganocake2.png', :height => '40' %> <%= @genre.name %> 一覧
           <span style="font-size: 20px">（全<%= @items.count %>件）</span>
         </h2>
 
         <div class="row">
           <% @items.each do |item| %>
           <div class="col-xs-6 col-md-4">
+            <div class="item-section" style="margin-bottom: 30px; text-align: center;">
+
             <%= link_to item_path(item.id) do %>
-              <div class="item-img">
-                <%= attachment_image_tag item, :image, size: '250x200', fallback: 'no_image.jpg' %><br>
+              <div style="margin-bottom: 13px;">
+                <%= attachment_image_tag item, :image, size: '250x200', fallback: 'no_image.jpg' %>
               </div>
-              <div class="item-name">
+
+              <div style="margin-bottom: 5px;">
                 <%= item.name %>
                 <% end %>
               </div>
-                <% taxed_price = item.non_taxed_price * 1.1 %>
-                ¥<%= taxed_price.floor %>　(税込)<br>
-            </div>
-          <% end %>
 
-          <div class="col-xs-12　col-md-10">
+                <% taxed_price = item.non_taxed_price * 1.1 %>
+                ¥<%= taxed_price.floor %>　(税込)
+            </div>
+          </div>
+            <% end %>
+        </div>
+
+            <div class="col-xs-12　col-md-10">
           <%= paginate @items, class: "paginate"%>
           </div>
-        </div>
       </div>
 
 
@@ -39,33 +43,39 @@
     <!--URLにジャンルIDがない時は商品一覧を表示する-->
 
       <div class="col-xs-12 col-md-10">
-        <h2>
+        <h2><%= image_tag 'naganocake2.png', :height => '40' %> 
           商品一覧<span style="font-size: 20px">（全<%= @items.count %>件）</span>
         </h2>
 
         <div class="row">
           <% @items.each do |item| %>
           <div class="col-xs-6 col-md-4">
+            <div class="item-section" style="margin-bottom: 30px; text-align: center;">
+
             <%= link_to item_path(item.id) do %>
-              <div class="item-img">
+              <div style="margin-bottom: 13px;">
                 <%= attachment_image_tag item, :image, size: '250x200', fallback: 'no_image.jpg' %><br>
               </div>
-              <div class="item-name">
+
+              <div style="margin-bottom: 5px;">
                 <%= item.name %>
                 <% end %>
               </div>
-                <% taxed_price = item.non_taxed_price * 1.1 %>
-                  ¥<%= taxed_price.floor %>　(税込)<br>
-            </div>
-            <% end %>
 
-            <div class="col-xs-12　col-md-10">
-              <%= paginate @items, class: "paginate" %>
+                <% taxed_price = item.non_taxed_price * 1.1 %>
+                ¥<%= taxed_price.floor %>　(税込)<br>
             </div>
           </div>
-      </div>
+          <% end %>
+        </div>
 
+          <div class="col-xs-12　col-md-10" style="text-align:center;" >
+            <%= paginate @items, class: "paginate" %>
+          </div>
+
+      </div>
     <% end %>
+
 
   </div>
 </div>

@@ -1,36 +1,38 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
 
-    <div class="col-xs-12 col-md-2 genre-form">
+    <div class="col-xs-12 col-md-2 genre-form" style="text-align:center;">
       <%= render 'layouts/genre_seach', genres: @genres %>
     </div>
 
       <div class="col-xs-6 col-md-5">
-        <div class="item-img-area">
+        <div style="margin-top: 50px; text-align: center;">
         <%= attachment_image_tag @item, :image, size: '350x280', fallback: 'no_image.jpg' %>
         </div>
       </div>
 
+
       <div class="col-xs-6 col-md-5">
         <h2><%= @item.name %></h2>
 
-        <div class="item_text">
+        <div style="margin-bottom: 50px;">
           <%= @item.introduction %>
         </div>
 
-        <div class="item-price">
+        <div style="margin-bottom: 50px; font-size: 17px;" >
         <% taxed_price = @item.non_taxed_price * 1.1 %>
-               ¥<%= taxed_price.floor %> (税込)
+          ¥<%= taxed_price.floor %> (税込)
         </div>
 
-        <div class="cart-link">
+        <div class="cart-link" style="text-align:right;">
                <%= form_for @cart_item, url: cart_items_path(@cart_item) do |f| %>
                <%= f.hidden_field :item_id, :value => @item.id%>
-               <%= f.number_field :count, placeholder: "個数選択", min: 1, max: 99 %>
+               <%= f.number_field :count, placeholder: "個数選択", min: 1, max: 99%>
                <%= f.submit "カートに入れる", class: 'btn btn-primary' %>
                <% end %>
         </div>
       </div>
+
 
   </div>
 </div>

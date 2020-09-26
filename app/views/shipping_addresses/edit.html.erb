@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
- 
+      <h2><%= image_tag 'naganocake2.png', :height => '40' %> 配送先編集</h2>
+    </div>
+
+    <div class="row">
       <% if @shipping_address.errors.any? %>
         <h3><%= @shipping_address.errors.count %>error occurrence</h3>
         <ul>
@@ -11,27 +14,29 @@
         </ul>
       <% end %>
 
-			<h2 class="title">配送先編集</h2>
-			<div class="col-md-offset-3 col-md-6, col-xs-offset-2 col-xs-8" style="text-align: left">
-        <div class="form-field">
-        <dl>
+			<div class="col-md-offset-3 col-md-6, col-xs-10">
     		<%= form_for (@shipping_address) do |f| %>
-    		<dt><%= f.label :郵便番号%></dt>
-    		<dd><%= f.text_field :postal_code %></dd>
+        <dl>
+          <dt><%= f.label :郵便番号%>(ハイフンなし)</dt>
+    		    <dd><%= f.text_field :postal_code %></dd>
 
-    		<dt><%= f.label :住所%></dt>
-    		<dd><%= f.text_field :address %></dd>
+    		  <dt><%= f.label :住所%></dt>
+    		    <dd><%= f.text_field :address , size: 53 %></dd>
 
-    		<dt><%= f.label :宛名%></dt>
-    		<dd><%= f.text_field :receiver_name %></dd>
-      </dl>
+    		  <dt><%= f.label :宛名%></dt>
+    		    <dd><%= f.text_field :receiver_name %></dd>
+        </dl>
 
-    		<%= f.submit "編集する", class: "btn btn-primary" %>
-  			<% end %>
+        <div class="row">
+          <div class="col-md-7 col-xs-12">
+            <div class="actions" style="text-align:right;">
+    		      <%= f.submit "編集する", class: "btn btn-primary" %>
+  			      <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
+    </div>
 
-  		</div>
-  	</div>
-	</div>
+  </div>
 </div>

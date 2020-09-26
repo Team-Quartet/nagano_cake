@@ -1,18 +1,19 @@
-<div class="row">
-  <div class="main col-md-offset-3 col-md-8">
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
 
-    <h2>新規会員登録</h2>
+      <h2><%= image_tag 'naganocake2.png', :height => '40' %> 新規会員登録</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "customers/shared/error_messages", resource: resource %>
-    <dl>
-       <div class="field">
-        <dt><%= f.label '名前' %></dt>
-        <dd><%= '(姓)' %>
-            <%= f.text_field :family_name, autofocus: true, class: 'family_name' %>
-        <%= '(名)' %>
-        <%= f.text_field :first_name, autofocus: true, class: ':first_name' %></dd>
-      </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "customers/shared/error_messages", resource: resource %>
+        <dl>
+          <div class="field">
+            <dt><%= f.label '名前' %></dt>
+            <dd><%= '(姓)　' %>
+              <%= f.text_field :family_name, autofocus: true, class: 'family_name' %>
+              <%= '(名)　' %>
+              <%= f.text_field :first_name, autofocus: true, class: ':first_name' %></dd>
+            </div>
 
          <div class="field">
         <dt><%= f.label 'フリガナ' %></dt>
@@ -34,12 +35,12 @@
 
        <div class="field">
           <dt><%= f.label '住所' %></dt>
-          <dd><%= f.text_field :address, autofocus: true, class: 'address' %></dd>
+          <dd><%= f.text_field :address, autofocus: true, class: 'address', size: 53  %></dd>
         </div>
 
         <div class="field">
           <dt><%= f.label '電話番号(ハイフンなし)' %></dt>
-          <dd><%= f.text_field :phone_number, autofocus: true, class: 'phone_number' %></dd>
+          <dd><%= f.text_field :phone_number, autofocus: true, class: 'phone_number'  %></dd>
         </div>
 
       <div class="field">
@@ -56,11 +57,15 @@
       </div>
     </dl>
 
-      <div class="actions">
+      <div class="actions" style="text-align:center;">
         <%= f.submit "新規登録", class: "btn btn-success" %>
       </div><br />
     <% end %>
 
     <%= render "customers/shared/links" %>
+    </div>
+  </div>
+
+    </div>
   </div>
 </div>
