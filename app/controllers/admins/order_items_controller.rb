@@ -8,6 +8,6 @@ class Admins::OrderItemsController < ApplicationController
 
   private
   def order_item_params
-    params.require(:order_item).permit(:item_id, :order_id, :amount, :taxted_price).merge(making_status: params[:order_item][:making_status].to_i)
+    params.require(:order_item).permit(:item_id, :order_id, :count, :taxted_price).merge(making_status: params[:order_item][:making_status].to_i)
   end
 end
