@@ -1,0 +1,30 @@
+#ja:
+#    activerecord:
+#        models:
+#            order_item:
+#        attributes:
+ #           order_item:
+  #              making_status:
+   # enums:
+    #    order_item:
+     #       type:
+      #          not_started: 着手不可
+       #         make_waiting: 製作待ち
+         #       working: 製作中
+          #      preparing: 製作完了
+
+ja:
+    activerecord:
+        models:
+            order:
+        attributes:
+            order:
+                status: 注文ステータス
+    enums:
+        order:
+            type:
+                payment_waiting: 入金待ち
+                payment_confirmed: 入金確認
+                working: 製作中
+                preparing: 発送準備中
+                shipped: 発送済み

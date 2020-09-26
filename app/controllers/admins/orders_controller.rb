@@ -19,18 +19,19 @@ class Admins::OrdersController < ApplicationController
     def update
      @order = Order.find(params[:id])
      if @order.update(order_params)
-      redirect_to request.referer, notice: 'ユーザ情報を更新しました。'
+      redirect_to admins_orders_path, notice: 'ユーザ情報を更新しました。'
     else
-      render 'orders/show'
+      render 'show'
       @customer = @order.customer
-      @order_items = @order.order_items
-      @order_item = OrderItem.find(@order.id)
+      @order_items = @order.order_items.all
+      #@order_item = OrderItem.find(@order.id)
     end
   end
 
+
   private
   def order_params
-   params.permit(:customer_id, :shipping_fee, :total_price, :payment_method, :status, :receiver_name, :postal_code, :address)
+   params.permit(:customer_id, :shipping_fee, :total_price, :payment_method, :receiver_name, :postal_code, :address).merge(status: params[:order][:status].to_i)
  end
 
  def order_item_params

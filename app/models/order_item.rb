@@ -3,7 +3,7 @@ class OrderItem < ApplicationRecord
 	belongs_to :order
 	belongs_to :item
 
-	enum making_status: [:着手不可, :製作待ち, :製作中, :製作完了]
+	enum making_status: {着手不可: 0, 製作待ち: 1, 製作中: 2, 製作完了: 3 }
 
 	after_update do
 		order_items = self.order.order_items
