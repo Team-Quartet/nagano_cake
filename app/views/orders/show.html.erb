@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
-    <br><br><br><div class = "col-sm-offset-1 headline">注文履歴詳細</div>
-  <div class="order_show_title">
-  <label>注文情報</label>
-  <label id="order_show_title_fix">請求情報</label>
-  </div>
+    <div class = "col-xs-12">
+      <h2><%= image_tag 'naganocake2.png', :height => '40' %> 注文履歴詳細</h2>
+    </div>
+
+
   <div class="order_show_content">
-  <div class="col-sm-6">
+  <div class="col-sm-7">
+      <label style="font-size: 17px;">注文情報</label>
   <table class="table table-bordered">
       <tr>
           <th class="active col-sm-2">注文日</th>
@@ -14,7 +15,7 @@
       </tr>
       <tr>
           <th class="active">配送先</th>
-          <td><%= @order.postal_code %><%= @order.address %><%= @order.receiver_name %></td>
+          <td><%= @order.postal_code %><%= @order.address %><br><%= @order.receiver_name %></td>
       </tr>
       <tr>
           <th class="active">支払方法</th>
@@ -26,8 +27,9 @@
       </tr>
   </table>
   </div>
-  
-  <div class="col-sm-4">
+
+  <div class="col-sm-5">
+     <label style="font-size: 17px;">請求情報</label>
   <table class="table table-bordered">
       <tr>
           <th class="active col-sm-4">商品合計</th>
@@ -44,12 +46,10 @@
   </table>
   </div>
   </div>
-  
-  <div class="order_show_title">
-  <label>注文内容</label>
-  </div>
-  
-  <div class="col-sm-10">
+
+
+  <div class="col-sm-12">
+    <label style="font-size: 17px;">注文内容</label>
   <table class="table table-bordered">
       <tr class="active">
           <th class="col-sm-5">商品</th>
@@ -69,10 +69,10 @@
               <% subtotal_price = price_including_tax.floor * order_item.count %>
               <%= subtotal_price.floor %>
           </td>
-      <tr>
+      </tr>
       <% end %>
   </table>
-  </div>
-  </div>
-  </div>
-  </div>
+</div>
+</div>
+
+</div>

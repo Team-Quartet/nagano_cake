@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
       @genre = Genre.find(params[:genre_id])
       @items = Item.where(genre_id: params[:genre_id]).page(params[:page]).per(8)
     else
-      @items = Item.all.page(params[:page]).per(8)
+      @items = Item.all.page(params[:page]).per(9)
     end
   end
 
