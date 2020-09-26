@@ -51,18 +51,18 @@
               <li><%= link_to "ログイン", new_customer_session_path, class: "btn btn-default" %></li>
             <% end %>
             </ul>
-         </div>
+
          <!--管理者側のキーワード検索機能-->
           <% if admin_signed_in? %>
               <div class="search-form text-right">
-                  <%= form_tag(admins_search_path, method: :get) do %>
+                  <%= form_tag(admins_search_path, method: :get) do %><br><br><br>
                     <%= select_tag 'model_type', options_for_select([['商品名', '商品名'], ['会員氏名', '会員氏名']]) %>
                     <%= text_field_tag :content, params[:content],placeholder: "検索" %>
                     <%= submit_tag 'Search' %>
                   <% end %>
               </div>
           <% end%>
-
+         </div>
        </div>
       </nav>
     </header>
