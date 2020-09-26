@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_021253) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_021253) do
     t.integer "item_id"
     t.integer "count"
     t.integer "taxed_price"
-    t.string "making_status"
+    t.integer "making_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_021253) do
     t.integer "shipping_fee"
     t.integer "total_price"
     t.integer "payment_method"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "receiver_name"
     t.string "postal_code"
     t.string "address"
