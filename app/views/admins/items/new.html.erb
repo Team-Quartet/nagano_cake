@@ -1,24 +1,52 @@
 <div class="container">
   <div class="row">
 	<div class="col-xs-12">
-		<h2>商品新規登録</h2>
 
 		<%= form_for(@item, url:admins_items_path) do |f| %>
-		<div class="col-xs-4">
-			<div class="item_image">
-				<%= attachment_image_tag @item, :image, class: "img", fallback: "no_image.jpg", size:"300x240" %>
+
+		<!-- error message -->
+		<% if @item.errors.any? %>
+		    <div id="error_explanation" style="color: red;">
+			    <h4><%= @item.errors.count %> errors prohibited this obj from being saved:</h4>
+			    	<ul>
+			    		<% @item.errors.full_messages.each do |message| %>
+			    		<li><%= message %></li>
+			    		<% end %>
+			    	</ul>
+			</div>
+	    <% end %>
+
+	    <!-- 商品新規登録 -->
+	    <h2><%= image_tag 'naganocake2.png', :height => '40' %> 商品新規登録</h2>
+        <div class="col-xs-4">
+		    <div class="item_image">
+		    	<%= attachment_image_tag @item, :image, class: "img", fallback: "no_image.jpg", size:"300x240" %>
 				<%= f.attachment_field :image %>
 			</div>
+
+			<!-- 画像プレビュー -->
+			<script>
+			   $(function(){
+		       	$('#item_image').on('change', function (e) {
+		       		var reader = new FileReader();
+		    		reader.onload = function (e) {
+		    			$(".image").attr('src', e.target.result);
+		    		}
+		    		reader.readAsDataURL(e.target.files[0]);
+		    	});
+		       });
+		    </script>
 		</div>
+
 		<dl>
-		<div class="col-xs-8">
+		<div class="col-xs-6">
 			<div class="item_form">
 				<dt><%= f.label "商品名　　" %></dt>
-				<dd><%= f.text_field :name, autofocus: true, size: 40 %></dd>
+				<dd><%= f.text_field :name, autofocus: true, size: '70%' %></dd>
 			</div>
 			<div class="item_form">
 				<dt><%= f.label "商品説明　" %></dt>
-				<dd><%= f.text_area :introduction, autofocus: true, size: "40x5" %></dd>
+				<dd><%= f.text_area :introduction, autofocus: true, size: '70%' %></dd>
 			</div>
 			<div class="item_form">
 				<dt><%= f.label "ジャンル　" %></dt>
@@ -26,21 +54,20 @@
 			</div>
 			<div class="item_form">
 				<dt><%= f.label  "税抜価格　" %></dt>
-				<dd><%= f.text_field :non_taxed_price, autofocus: true, size: 14 %></dd>
+				<dd><%= f.text_field :non_taxed_price, autofocus: true %></dd>
 			</div>
 			<div class="item_form">
 				<dt><%= f.label "販売ステータス" %></dt>
 				<dd><%= f.select :is_active, [["販売中", true],["売切れ", false]] %></dd>
 			</div>
 		</div>
-
 		</dl>
-		<div class="col-xs-2" style="position:absolute; top: 470px; right: 20px;">
+		<div class="col-xs-2" style="position:absolute; top: 380px; right: 20px;">
 			<%= f.submit '新規登録', class: "btn btn-md" %>
-		</div>
-
 		<% end %>
 
+		</div>
+
 	</div>
-  </div>
+　</div>
 </div>
