@@ -19,7 +19,7 @@ class Admins::OrdersController < ApplicationController
     def update
      @order = Order.find(params[:id])
      if @order.update(order_params)
-      redirect_to admins_orders_path, notice: 'ユーザ情報を更新しました。'
+      redirect_to request.referer
     else
       render 'show'
       @customer = @order.customer
