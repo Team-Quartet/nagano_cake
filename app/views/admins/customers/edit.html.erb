@@ -1,16 +1,15 @@
 <div class="container">
 <div class="row">
-	<div class="main col-xs-6 col-xs-offset-3">
-		<h2><%= image_tag 'naganocake2.png', :height => '40' %> <%= @customer.full_name %>さんの会員情報編集</h2>
-
-
+      <%= render 'admins/shared/error_messages', model: @customer %>
+	　<div class="main col-xs-6 col-xs-offset-3">
+		　　<h2><%= image_tag 'naganocake2.png', :height => '40' %> <%= @customer.full_name %>さんの会員情報編集</h2>
 
 		<%= form_for(@customer, url: admins_customer_path) do |f| %>
 		<dl>
 
 			<div class="customer_form">
 				<dt><%= "会員ID" %></dt>
-				<dd ><%= @customer.id %></dd>
+				<dd><strong><%= @customer.id %></strong></dd>
 			</div>
 
 			<div class="customer_form">
