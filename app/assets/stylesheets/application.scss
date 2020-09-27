@@ -34,9 +34,10 @@
 
 
 .wrapper{
-    min-height: 175vh;
+    min-height: 115vh;
     position: relative;
     box-sizing: border-box;
+    padding-bottom: 60px;
 }
 
 /* header */
@@ -203,7 +204,7 @@ footer {
    font-family: "Times New Roman", sans-serif;
    text-align: center;
    line-height: 70px;
-   margin-top: 40px;
+   margin-top: 50px;
    position: absolute;
    bottom: 0;
 }
@@ -229,4 +230,8 @@ form dl dd{
 
 .price_detail {
   margin-top: 50px;
+}
+
+.mt-5 {
+  padding-top: 40px;
 }
