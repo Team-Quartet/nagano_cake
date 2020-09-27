@@ -38,8 +38,9 @@
               </td>
               <td style="padding: 10px;">
                 <%= form_for(cart_item, url:cart_item_path(cart_item.id)) do |f| %>
-                <%= f.text_field :count, size:"5" %>
+                <%= f.number_field :count, placeholder: "個数選択", min: 1, max: 99, size:"5"%>
                 <%= f.submit '変更', class: "btn btn-primary" %>
+                
                 <% end %>
               </td>
 
@@ -68,7 +69,7 @@
         </div>
 
         <div class="col-xs-2">
-          <%= link_to '買い物を続ける', root_path, class: "btn btn-primary" %><br>
+          <%= link_to ' 買い物を続ける', root_path, class: "btn btn-primary" %><br>
         </div>
         <div class="col-xs-12" style="text-align:center;">
           <div class="success_btn">
