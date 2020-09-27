@@ -19,14 +19,15 @@ class CustomersController < ApplicationController
   end
 
   def unsubscribe
-    @customer = Customer.find(current_customer.id)
+    @customer = current_customer
   end
 
   def withdrawl
-    @customer = Customer.find(current_customer.id)
+    @customer = current_customer
+    @customer.update(is_deleted: true)
     reset_session
-    @customer.destroy
-    redirect_to root_path, notice: "退会しました"
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   def after_sign_out_path_for(resource)
