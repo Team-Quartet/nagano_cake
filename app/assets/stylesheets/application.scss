@@ -56,24 +56,23 @@ header {
 .header-menu {
   list-style: none;
   display: inline-block;
-  margin: 28px 15px 0 0;
-  font-size: 14px;
+  margin-top: 28px;
+  font-size: 15px;
   color: #eedcb3;
 }
 
-/*.container {
-   width: 1024px;
-   margin: 0 auto;
+.nav > li > a:hover {
+  padding-bottom: 0;
+  color: #e3acae;
+  background-color: transparent;
+  border-bottom: solid 1px #e3acae ;
 }
-*/
 
 .nav {
   margin: 0 auto;
   line-height: 110px;
-  color: #4e454a;
+  color: #eedcb3;
 }
-
-
 
 header .btn {
   margin: 28px 15px 0 0;
@@ -92,15 +91,14 @@ header body {
   font-family: 'Avenir','Calibri',sans-serif;
 }
 
+body {
+  background-color: #f8f4e6;
+}
+
 /* リンクの文字色 */
 a {
   color: #4e454a;
 }
-
-a:hover {
-  background-color: transparent;
-}
-
 
 h2,h5 {
   margin: 50px auto;
@@ -142,17 +140,18 @@ h3 {
   padding-top: 20px;
 }
 
-/* table共通背景色
+/* table共通背景色 */
 .table-bordered {
-  background-color: #efefef;
+  background-color: #eae8e1;
 }
- */
 
 .main-visual-image {
   display: block;
   height: auto;
   max-width: 100%;
 }
+
+
 
 /* ジャンル検索 */
 

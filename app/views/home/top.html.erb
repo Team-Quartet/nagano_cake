@@ -2,42 +2,41 @@
   <div class="row">
     <div class = "col-xs-12">
       <div class="main-visual-image" style="margin-top:50px; text-align: center;">
-        <%= image_tag 'S__11149369.jpg', :height => '400' %>
+        <%= image_tag 'main1.PNG', :width => '100%' %>
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-md-2" style="margin-top: 30px; text-align:center;">
-      <%= render 'layouts/genre_seach', genres: @genres %>
-    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-2" style="margin-top: 30px; text-align:center;">
+        <%= render 'layouts/genre_seach', genres: @genres %>
+      </div>
 
-    <div class="col-xs-12 col-md-10" style= "margin-top: 30px; text-align:center;">
-      <h4 style="margin: 40px 0 20px 0"><%= image_tag 'naganocake2.png', :height => '40' %> おすすめ商品</h4>
+      <div class="col-xs-12 col-md-10" style= "margin-top: 30px; text-align:center;">
+        <h4 style="margin: 40px 0 20px 0"><%= image_tag 'naganocake2.png', :height => '40' %> おすすめ商品</h4>
 
-        <% @items.each do |item| %>
-        <div class="col-xs-6 col-md-4">
-          <div class="item-section" style="margin-bottom: 30px; text-align: center;">
+          <% @items.each do |item| %>
+            <div class="col-xs-6 col-md-4">
+              <div class="item-section" style="margin-bottom: 30px; text-align: center;">
 
-          <%= link_to item_path(item) do %>
-            <%= attachment_image_tag item, :image, width: "90%", height: "150px", style: "object-fit: cover;",  fallback: "no_image.jpg" %>
-              <ul style="list-style: none; margin:10px 0; padding: 0;">
-                <li><%= item.name %></li>
-            <% end %>
-            <li>¥<%= (item.non_taxed_price * 1.1).to_i.to_s(:delimited) %></li>
-          </ul>
+                <%= link_to item_path(item) do %>
+                <%= attachment_image_tag item, :image, width: "90%", height: "150px", style: "object-fit: cover;",  fallback: "no_image.jpg" %>
+                <ul style="list-style: none; margin:10px 0; padding: 0;">
+                  <li><%= item.name %></li>
+                  <% end %>
+                  <li>¥<%= (item.non_taxed_price * 1.1).to_i.to_s(:delimited) %></li>
+                </ul>
+              </div>
+            </div>
+          <% end %>
 
+          <div class="col-xs-12　col-md-10">
+            <%= link_to items_path do %>
+          <div style="text-align: right; font-size: 15px;">もっと見る >></div>
           </div>
-        </div>
-        <% end %>
 
-      <div class="col-xs-12　col-md-10">
-        <%= link_to items_path do %>
-        <div style="text-align: right; font-size: 15px;">もっと見る >></div>
       </div>
-
+      <% end %>
     </div>
-    <% end %>
-  </div>
 
  </div>
 </div>
