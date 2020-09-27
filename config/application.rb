@@ -17,5 +17,7 @@ module NaganoCake
     # the framework and any gems in your application.
   # タイムゾーンを日本時間に設定
     config.time_zone = 'Asia/Tokyo'
+  # エラーメッセージ 表示の際のレイアウト崩れ防止設定
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

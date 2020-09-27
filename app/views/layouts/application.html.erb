@@ -21,33 +21,33 @@
             <% end %>
           </div>
 
-            <ul class="nav navbar-nav navbar-right" style="margin: auto;">
+            <ul class="nav navbar-nav navbar-right" style="margin: auto; background-color: transparent;">
 
           <!-- カスタマーがログインしている -->
             <% if customer_signed_in? %>
               <li class= "customer_name">
                 ようこそ、<%= current_customer.full_name %>さん！
               </li>
-              <li><%= link_to "マイページ", customer_path, class: "header-menu" %></li>
-              <li><%= link_to "商品一覧", items_path, class: "header-menu fas fa-birthday-cake mr-4 text-dark" %></li>
-              <li><%= link_to "カート", cart_items_path, class: "header-menu fas fa-shopping-cart mr-4 text-dark" %></li>
-              <li><%= link_to "ログアウト", destroy_customer_session_path, class: "header-menu", method: :delete %></li>
+              <li><%= link_to " マイページ", customer_path, class: "header-menu fas fa-address-book mr-4 text-dark" %></li>
+              <li><%= link_to " 商品一覧", items_path, class: "header-menu fas fa-birthday-cake mr-4 text-dark" %></li>
+              <li><%= link_to " カート", cart_items_path, class: "header-menu fas fa-shopping-cart mr-4 text-dark" %></li>
+              <li><%= link_to " ログアウト", destroy_customer_session_path, class: "header-menu fas fa-sign-out-alt mr-4 text-dark", method: :delete %></li>
 
           <!-- 管理者がログインしている -->
             <% elsif admin_signed_in? %>
-              <li><%= link_to "商品一覧", admins_items_path, class: "header-menu fas fa-birthday-cake mr-4 text-dark" %></li>
-              <li><%= link_to "会員一覧", admins_customers_path, class: "header-menu" %></li>
-              <li><%= link_to "注文履歴一覧", admins_orders_path, class: "header-menu" %></li>
-              <li><%= link_to "ジャンル一覧", admins_genres_path, class: "header-menu" %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, class: "header-menu", method: :delete %></li>
+              <li><%= link_to " 商品一覧", admins_items_path, class: "header-menu fas fa-birthday-cake mr-4 text-dark" %></li>
+              <li><%= link_to " 会員一覧", admins_customers_path, class: "header-menu fas fa-users mr-4 text-dark" %></li>
+              <li><%= link_to " 注文履歴一覧", admins_orders_path, class: "header-menu fas fa-gifts mr-4 text-dark" %></li>
+              <li><%= link_to " ジャンル一覧", admins_genres_path, class: "header-menu fas fa-cheese mr-4 text-dark" %></li>
+              <li><%= link_to " ログアウト", destroy_admin_session_path, class: "header-menu fas fa-sign-out-alt mr-4 text-dark", method: :delete %></li>
 
           <!-- どちらもログインしていない -->
             <% else %>
 
-              <li><%= link_to "ABOUT", home_about_path, class: "header-menu" %></li>
-              <li><%= link_to "商品一覧", items_path, class: "header-menu" %></li>
-              <li><%= link_to "新規登録", new_customer_registration_path, class: "header-menu" %></li>
-              <li><%= link_to "ログイン", new_customer_session_path, class: "header-menu" %></li>
+              <li><%= link_to " ABOUT", home_about_path, class: "header-menu fas fa-store mr-4 text-dark" %></li>
+              <li><%= link_to " 商品一覧", items_path, class: "header-menu fas fa-birthday-cake mr-4 text-dark" %></li>
+              <li><%= link_to " 新規登録", new_customer_registration_path, class: "header-menu fas fa-user-edit mr-4 text-dark" %></li>
+              <li><%= link_to " ログイン", new_customer_session_path, class: "header-menu fas fa-sign-in-alt mr-4 text-dark" %></li>
 
             <% end %>
             </ul>
